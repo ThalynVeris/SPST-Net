@@ -1,0 +1,78 @@
+# general settings
+name: test_SPSTNet_x4
+model_type: SPSTNetModel
+scale: 4
+num_gpu: 1
+manual_seed: 3407
+
+datasets:
+  test_1:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/Set5/x4
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/Set5/x4
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_2:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/Set14/x4
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/Set14/x4
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_3:
+    name: B100
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/B100/x4
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/B100/x4
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_4:
+    name: Urban100
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/Urban100/x4
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/Urban100/x4
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_5:
+    name: Manga109
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/Manga109/x4
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/Manga109/x4
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: SPSTNet
+  upscale: 4
+
+# path
+path:
+  pretrain_network_g: pretrained_models/spst_net_x4_paper_checkpoint.pth
+  strict_load_g: true
+  results_root: results/SPSTNet_x4
+
+# validation settings
+val:
+  save_img: true
+  suffix: SPSTNet_x4
+
+  metrics:
+    psnr:
+      type: calculate_psnr_pt
+      crop_border: 4
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim_pt
+      crop_border: 4
+      test_y_channel: true

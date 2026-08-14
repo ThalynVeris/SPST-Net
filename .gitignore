@@ -1,0 +1,33 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Training and evaluation outputs
+experiments/
+results/
+tb_logger/
+wandb/
+training_states/
+
+# Local datasets and model weights
+datasets/
+*.pth
+*.pt
+*.state
+*.ckpt
+
+# Logs and temporary files
+*.log
+*.tmp
+

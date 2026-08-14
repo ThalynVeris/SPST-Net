@@ -1,0 +1,111 @@
+# general settings for image SR training
+name: train_SPSTNet_x3_finetune
+model_type: SPSTNetModel
+scale: 3
+num_gpu: auto
+manual_seed: 3407
+# dataset and data loader settings
+datasets:
+  train:
+    task: SR
+    name: DIV2K
+    type: PairedImageDataset
+    dataroot_gt: datasets/DIV2K/DIV2K_HR
+    dataroot_lq: datasets/DIV2K/DIV2K_LR_bicubic/x3
+    filename_tmpl: '{}x3'
+    io_backend:
+      type: disk
+
+    gt_size: 192
+    use_hflip: true
+    use_rot: true
+
+    # data loader
+    use_shuffle: true
+    num_worker_per_gpu: 8
+    batch_size_per_gpu: 8
+    dataset_enlarge_ratio: 100
+    prefetch_mode: 'cuda'
+    pin_memory: true
+
+  val_0:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/Set5/x3   # <<< 修正
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/Set5/x3 # <<< 修正
+    filename_tmpl: '{}'                          # <<< 修正
+    io_backend:
+      type: disk
+  val_1:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: datasets/TestDataSR/HR/Set14/x3   # <<< 修正
+    dataroot_lq: datasets/TestDataSR/LR/LRBI/Set14/x3 # <<< 修正
+    filename_tmpl: '{}'  
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: SPSTNet
+  upscale: 3
+
+# path
+path:
+  pretrain_network_g: pretrained_models/spst_net_x2_paper_checkpoint.pth
+  strict_load_g: false
+  resume_state: ~
+
+# training settings
+train:
+  use_amp: true
+  optim_g:
+    type: Adam
+    lr: !!float 2e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [125000, 200000, 225000, 237500]
+    gamma: 0.5
+
+  total_iter: 250000
+
+
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+# validation settings
+val:
+  val_freq: !!float 2500
+  save_img: false
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr_pt
+      crop_border: 3
+      test_y_channel: true
+
+    ssim:
+      type: calculate_ssim_pt
+      crop_border: 3
+      test_y_channel: true
+
+
+
+# logging settings
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 2500
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
