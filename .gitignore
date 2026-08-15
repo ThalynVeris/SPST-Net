@@ -16,8 +16,6 @@ dist/
 # Training and evaluation outputs
 experiments/*
 !experiments/.gitkeep
-results/*
-!results/.gitkeep
 tb_logger/*
 !tb_logger/.gitkeep
 wandb/
