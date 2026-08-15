@@ -171,4 +171,4 @@ This repository retains the applicable Apache License 2.0 terms in [`LICENSE.txt
 
 ## Acknowledgements
 
-This implementation builds on the public [CATANet](https://github.com/EquationWalker/CATANet) codebase and the [BasicSR](https://github.com/XPixelGroup/BasicSR) framework. We thank the original authors and retain their applicable license notices and attribution.
+This implementation builds on the public codebase and the [BasicSR](https://github.com/XPixelGroup/BasicSR) framework. We thank the original authors and retain their applicable license notices and attribution.
