@@ -52,7 +52,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: pretrained_models/spst_net_x2_paper_checkpoint.pth
+  pretrain_network_g: pretrained_models/spst_net_x2.pth
   strict_load_g: false
   resume_state: ~
 
