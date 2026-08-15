@@ -21,7 +21,8 @@ wandb/
 training_states/
 
 # Local datasets and model weights
-datasets/
+datasets/*
+!datasets/.gitkeep
 *.pth
 *.pt
 *.state
@@ -30,4 +31,3 @@ datasets/
 # Logs and temporary files
 *.log
 *.tmp
-
