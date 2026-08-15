@@ -1,6 +1,7 @@
 <h1 align="center">SPST-Net: Structure--Texture Decoupled Attention with Spectral Prior for Image Super-Resolution</h1>
 
-<p align="center"><strong>Jia Zhu</strong></p>
+<p align="center"><strong>Zhu Jia, Wang Xiaohong*</strong></p>
+<p align="center"><sup>*</sup> Corresponding author</p>
 <p align="center">Manuscript under review</p>
 
 <p align="center">
@@ -11,7 +12,7 @@
 
 ## Brief Introduction
 
-SPST-Net is a lightweight Transformer-based framework for single-image super-resolution (SISR). It is designed around two complementary restoration objectives: preserving reliable structural organization and recovering fine texture details. The network also introduces frequency-domain evidence to help constrain the inherently ambiguous reconstruction of high-frequency content lost during downsampling.
+SPST-Net is a Transformer-based framework for single-image super-resolution (SISR). It is designed around two complementary restoration objectives: preserving reliable structural organization and recovering fine texture details. The network also introduces frequency-domain evidence to help constrain the inherently ambiguous reconstruction of high-frequency content lost during downsampling.
 
 The framework contains four principal components:
 
@@ -163,7 +164,7 @@ The released checkpoint tensors were produced under a historical module hierarch
 
 ## Citation
 
-Final BibTeX metadata will be added after public publication information becomes available. Until then, please refer to the repository by its title and URL without inferring a venue, DOI, or publication record.
+The manuscript authors are **Zhu Jia and Wang Xiaohong**. Final BibTeX metadata will be added after public publication information becomes available. Until then, please refer to the repository by its title and URL without inferring a venue, DOI, or publication record.
 
 ## License
 
