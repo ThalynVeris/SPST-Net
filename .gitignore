@@ -14,9 +14,12 @@ dist/
 *.swp
 
 # Training and evaluation outputs
-experiments/
-results/
-tb_logger/
+experiments/*
+!experiments/.gitkeep
+results/*
+!results/.gitkeep
+tb_logger/*
+!tb_logger/.gitkeep
 wandb/
 training_states/
 
