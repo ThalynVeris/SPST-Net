@@ -31,7 +31,7 @@ basicsr/archs/spst_net_arch.py   SPST-Net architecture and core modules
 basicsr/models/spst_net_model.py BasicSR model wrapper
 options/train/                   Training configurations
 options/test/                    Evaluation configurations
-pretrained_models/               Experimental checkpoints
+GitHub Releases                  Experimental checkpoints
 ```
 
 ## Experimental Artifacts
@@ -40,9 +40,9 @@ Configurations and checkpoints are organized by upscaling factor:
 
 | Scale | Training configuration | Evaluation configuration | Checkpoint |
 |---|---|---|---|
-| x2 | `train_spst_net_x2.yml` | `test_spst_net_x2.yml` | `spst_net_x2.pth` |
-| x3 | `train_spst_net_x3.yml` | `test_spst_net_x3.yml` | `spst_net_x3.pth` |
-| x4 | `train_spst_net_x4.yml` | `test_spst_net_x4.yml` | `spst_net_x4.pth` |
+| x2 | `train_spst_net_x2.yml` | `test_spst_net_x2.yml` | [`spst_net_x2.pth`](https://github.com/ThalynVeris/SPST-Net/releases/download/v0.1-review/spst_net_x2.pth) |
+| x3 | `train_spst_net_x3.yml` | `test_spst_net_x3.yml` | [`spst_net_x3.pth`](https://github.com/ThalynVeris/SPST-Net/releases/download/v0.1-review/spst_net_x3.pth) |
+| x4 | `train_spst_net_x4.yml` | `test_spst_net_x4.yml` | [`spst_net_x4.pth`](https://github.com/ThalynVeris/SPST-Net/releases/download/v0.1-review/spst_net_x4.pth) |
 
 Checkpoint SHA-256 values:
 
@@ -51,6 +51,9 @@ x2  bee23e6b3645759ad6de565097ba7fbbc15f07016766ac4e0ef6e19e3c5f3623
 x3  ef8d7a2c59cd0beee85bde4e79876605f3afe760105db672f8f39bdced59c129
 x4  9d095d6c7c327b3cd86a8f19f8f884ff41ddafd6e3e2228405519c8ffceb7a99
 ```
+
+The checkpoint files are distributed through the `v0.1-review` pre-release and
+are intentionally excluded from the Git history.
 
 The repository emphasizes the proposed framework and preserves the experimental
 artifacts used for manuscript review. It is not presented as a turnkey training
@@ -78,4 +81,3 @@ This repository builds on the public
 [BasicSR](https://github.com/XPixelGroup/BasicSR) framework. We thank the original
 authors and retain the applicable Apache License 2.0 terms and attribution in
 `LICENSE.txt`.
-
